@@ -1,11 +1,6 @@
-/* style.css */
 body {
-    background-image: url(./images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-color: #f4f4f9; */
-    color: #333;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f4f4f4, #e8e8e8);
     margin: 0;
     padding: 0;
     display: flex;
@@ -15,74 +10,149 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    width: 90%;
+    max-width: 800px;
+    background: linear-gradient(to bottom right, #ffffff, #f2f2f2);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px;
-    max-width: 90%;
+    overflow: hidden;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 24px;
+header {
+    background: linear-gradient(to right, #4CAF50, #66BB6A);
+    color: white;
+    padding: 20px;
     text-align: center;
-    color: #1F1F1F;
+    border-bottom: 2px solid #388E3C;
 }
 
 .task-input, .task-filter {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
 }
 
-.task-input input, .task-input select, .task-filter select, .task-filter input {
-    padding: 12px;
-    border: 1px solid #ddd;
+.task-input input, .task-filter input, .task-input select, .task-filter select, .task-input button, .task-filter button {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fafafa;
-    color: #333;
-    font-size: 14px;
+    flex: 1 1 150px;
 }
 
-button {
-    padding: 12px;
+.task-input button, .task-filter button {
+    background: linear-gradient(to right, #4CAF50, #66BB6A);
+    color: white;
     border: none;
-    border-radius: 5px;
-    background-color: #646464;
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #1E1E1E;
-    opacity: 0.6;
+.task-input button:hover, .task-filter button:hover {
+    background: linear-gradient(to right, #388E3C, #43A047);
+}
+
+.task-list {
+    padding: 20px;
 }
 
 .task-list ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .task-list li {
-    background-color: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to right, #ffffff, #f7f7f7);
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.task-list li .task-info {
+.task-list .id, .task-list .dueDate, .task-list .category {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.task-list .buttonDiv {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
 }
 
-.task-list li .task-category {
-    font-size: 12px;
-    color: #666;
+.task-list button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(to right, #555, #666);
+    color: white;
+}
+
+.task-list button:hover {
+    background: linear-gradient(to right, #d32f2f, #c62828);
+}
+
+@media (max-width: 600px) {
+    .task-input, .task-filter {
+        flex-direction: column;
+    }
+
+    .task-input input, .task-filter input, .task-input select, .task-filter select, .task-input button, .task-filter button {
+        flex: 1 1 100%;
+    }
+    
+    .task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+    }
+    .task-list .buttonDiv {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+    .task-list button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    header {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .task-input, .task-filter {
+        padding: 10px;
+    }
+
+    .task-input input, .task-filter input, .task-input select, .task-filter select, .task-input button, .task-filter button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+    }
+
+    .task-list .buttonDiv {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .task-list button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
 }

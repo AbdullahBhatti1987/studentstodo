@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -21,10 +23,10 @@
                 <option value="Extracurricular">Extracurricular Activities</option>
                 <option value="Personal">Personal</option>
             </select>
-            <button id="addTaskBtn">Add Task</button>
+            <button id="addTaskBtn" onclick="addTaskBtn()">Add Task</button>
         </div>
         <div class="task-filter">
-            <select id="filterCategory">
+            <select id="filterCategory" onchange="filterCategory()">
                 <option value="All">All</option>
                 <option value="Homework">Homework</option>
                 <option value="Exams">Exams</option>
@@ -38,10 +40,18 @@
         </div>
         <div class="task-list">
             <ul id="taskList">
-
+                <!-- <li><span class="id">${data.taskName}</span>
+                    <span class="dueDate">${data.dueDate}</span>
+                    <span class="category">${data.category}</span>
+                    <div class="buttonDiv">
+                        <button onclick="editTask(this)">Edit</button>
+                        <button onclick="removeTask(this)">Remove</button>
+                    </div>
+                </li> -->
             </ul>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

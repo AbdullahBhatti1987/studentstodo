@@ -1,50 +1,52 @@
-var taskButton = document.getElementById('addTaskBtn')
+const taskData = [];
+// const filterCategory = document.getElementById('filterCategory');
+const startDate = document.getElementById("startDate");
+const endDate = document.getElementById("endDate");
+const filterTaskBtn = document.getElementById("filterTaskBtn");
+const taskList = document.getElementById("taskList");
 
+const addTaskBtn = (element) => {
+  const taskName = document.getElementById("taskName");
+  const dueDate = document.getElementById("dueDate");
+  const category = document.getElementById("category");
+  console.log("abc");
+  if (taskName.value === "" || dueDate.value === "" || category.value === "") {
+    alert("Please fill all values");
+    return alert;
+  }
 
-taskButton.addEventListener('click', function() {
-    const taskName = document.getElementById('taskName').value;
-    const dueDate = document.getElementById('dueDate').value;
-    const category = document.getElementById('category').value;
+  const obj = {
+    task: taskName.value,
+    date: dueDate.value,
+    category: category.value,
+  };
+  taskData.push(obj);
+  console.log("push ho raha hai");
+  // render(taskData)
 
-    if (taskName === '' || dueDate === '' || category === '') {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    const taskList = document.getElementById('taskList');
-    // const li = document.createElement('li');
-    taskList.innerHTML = '';
-    var list = 
-    `<li><span>${taskName} - ${dueDate}</span>
-    <span class="category">${category}</span>
-    <button onclick="editTask(this)">Edit</button>
-    <button onclick="removeTask(this)">Remove</button></li>`;
-    taskList.innerHTML += list;
-
-    taskName.value = '';
-    dueDate.value = '';
-    category.value = 'Homework';
-});
-
-function removeTask(button) {
-    button.parentElement.remove();
-}
-function editTask(button) {
-    console.log(button.parentElement.children)
-    // var temp = prompt('Enter New Value', )
-    // button.parentElement.replace('');
-}
-
-document.getElementById('filterCategory').addEventListener('change', function() {
-    const category = this.value;
-    const tasks = document.querySelectorAll('#taskList li');
-
-    tasks.forEach(task => {
-        const taskCategory = task.querySelector('.category').textContent;
-        if (category === 'All' || taskCategory === category) {
-            task.style.display = '';
-        } else {
-            task.style.display = 'none';
+  taskName.value = "";
+  dueDate.value = "";
+  category.value = "Homework";
+};
+const render = (filterData) => {
+    taskList.innerHTML = "";
+    console.log("filter All chal raha hai");
+    filterData.forEach(function (data, ind) {
+    const task = `<li>
+        <span class="id">${data.task}</span>
+        <span class="dueDate">${data.date}</span>
+        <span class="category">${data.category}</span>
+        <div class="buttonDiv">
+        <button onclick="editTask(this)">Edit</button>
+        <button onclick="removeTask(this)">Remove</button>
+        </div>
+        </li>`;
+        taskList.innerHTML += task;
+        });
         }
-    });
-});
+        
+        
+const filterCategory = (ele) => {
+  const filterItems = taskData.filter = ((data) => ele.value === data.category);
+  render(filterItems);
+};
