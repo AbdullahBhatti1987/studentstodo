@@ -26,7 +26,7 @@
             <button id="addTaskBtn" onclick="addTaskBtn()">Add Task</button>
         </div>
         <div class="task-filter">
-            <select id="filterCategory" onchange="filterCategory()">
+            <select id="filterCategory" onchange="filterCategory(this)">
                 <option value="All">All</option>
                 <option value="Homework">Homework</option>
                 <option value="Exams">Exams</option>
@@ -36,7 +36,7 @@
             </select>
             <input type="date" id="startDate">
             <input type="date" id="endDate">
-            <button id="filterTaskBtn">Filter Tasks</button>
+            <button id="filterTaskBtn" onclick="filterTaskBtn()">Filter Tasks</button>
         </div>
         <div class="task-list">
             <ul id="taskList">

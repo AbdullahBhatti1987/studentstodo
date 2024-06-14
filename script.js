@@ -1,36 +1,86 @@
-const taskData = [];
-// const filterCategory = document.getElementById('filterCategory');
-const startDate = document.getElementById("startDate");
-const endDate = document.getElementById("endDate");
-const filterTaskBtn = document.getElementById("filterTaskBtn");
-const taskList = document.getElementById("taskList");
+var taskData = [
+    {
+    task: '1',
+    date: '2024-06-15',
+    category: 'Homework',
+},{
+    task: '2',
+    date: '2024-06-17',
+    category: 'Exams',
+},{
+    task: '3',
+    date: '2024-06-19',
+    category: 'Projects',
+},{
+    task: '4',
+    date: '2024-06-21',
+    category: 'Extracurricular',
+},{
+    task: '5',
+    date: '2024-06-23',
+    category: 'Personal',
+},{
+  task: '6',
+  date: '2024-06-22',
+  category: 'Personal',
+},{
+  task: '7',
+  date: '2024-06-21',
+  category: 'Personal',
+},{
+  task: '8',
+  date: '2024-06-20',
+  category: 'Personal',
+}
+];
 
-const addTaskBtn = (element) => {
+const addTaskBtn = () => {
   const taskName = document.getElementById("taskName");
   const dueDate = document.getElementById("dueDate");
   const category = document.getElementById("category");
-  console.log("abc");
-  if (taskName.value === "" || dueDate.value === "" || category.value === "") {
+  if (taskName.value === "" ||dueDate.value === "" ||category.value === "") {
     alert("Please fill all values");
-    return alert;
+    return;
   }
-
   const obj = {
     task: taskName.value,
     date: dueDate.value,
     category: category.value,
   };
+  
   taskData.push(obj);
-  console.log("push ho raha hai");
-  // render(taskData)
-
   taskName.value = "";
   dueDate.value = "";
   category.value = "Homework";
+  filterCategory()
 };
+
+const filterCategory = () => {
+  var tempValue = document.getElementById('filterCategory');
+    const filterItems = taskData.filter(data => 
+        data.category === tempValue.value || tempValue.value === "All");
+        render(filterItems);
+};
+
+const filterTaskBtn = () => {
+  const startDate = document.getElementById("startDate");
+  const endDate = document.getElementById("endDate");
+  var tempValue = document.getElementById('filterCategory');
+
+  if(startDate.value === '' || endDate.value === ''){
+    alert('Please select date range')
+    return
+  }
+  const dateRange = taskData.filter (data => 
+   data.date >= startDate.value && data.date <= endDate.value && data.category === tempValue.value
+);
+    render(dateRange)
+    startDate.value = ''
+    endDate.value = ''
+}
+
 const render = (filterData) => {
     taskList.innerHTML = "";
-    console.log("filter All chal raha hai");
     filterData.forEach(function (data, ind) {
     const task = `<li>
         <span class="id">${data.task}</span>
@@ -44,9 +94,34 @@ const render = (filterData) => {
         taskList.innerHTML += task;
         });
         }
-        
-        
-const filterCategory = (ele) => {
-  const filterItems = taskData.filter = ((data) => ele.value === data.category);
-  render(filterItems);
-};
+
+// const removeTask = (element) => {
+//     const address = element.parentElement.parentElement;
+// taskData.some(function(data,ind){
+//     if(data.task === address.children[0].innerText){
+//         console.log('value matched')
+//         taskData.splice(ind, 1)
+//     }   
+
+// })
+    
+//         const filterItems = taskData.filter(data => 
+//             data.category === element.value || element.value === "All");
+//         render(filterItems);
+    
+//     // render(taskData)
+//     // filterCategory
+// }
+
+// const editTask = (element) => {
+//     const address = element.parentElement.parentElement;
+//     const updatedValue = prompt('Enter Updated Value', 'Enter Updated Value')
+// taskData.some(function(data,ind){
+//     taskData.task = updatedValue;
+//     })
+//     render(taskData)
+// }
+
+
+render(taskData);
+
