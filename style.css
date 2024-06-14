@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    overflow-y: scroll;
 }
 
 .container {
@@ -17,7 +17,8 @@ body {
     background: linear-gradient(to bottom right, #ffffff, #f2f2f2);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: scroll;
+    margin: 0px auto;
 }
 
 header {
@@ -58,7 +59,20 @@ header {
 .task-list {
     padding: 20px;
 }
+.sort{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 
+}
+.sort .icon:nth-child(1){
+    padding-left: 100px;
+    flex-basis: 23%;
+}
+.sort .icon:nth-child(2){
+    flex-basis: 30%;
+}
 .task-list ul {
     list-style: none;
     padding: 0;
@@ -75,8 +89,10 @@ header {
     border-radius: 5px;
     margin-bottom: 10px;
 }
-
-.task-list .id, .task-list .dueDate, .task-list .category {
+.task-list li .id{
+    width: 30px;
+}
+.task-list .task, .task-list .dueDate, .task-list .category {
     flex: 1;
     padding: 0 10px;
 }
@@ -94,9 +110,12 @@ header {
     background: linear-gradient(to right, #555, #666);
     color: white;
 }
-
 .task-list button:hover {
     background: linear-gradient(to right, #d32f2f, #c62828);
+}
+
+.task-list button:first-child:hover{
+    background: linear-gradient(to right, #4CAF50, #66BB6A);
 }
 
 @media (max-width: 600px) {
@@ -123,6 +142,9 @@ header {
         padding: 4px 8px;
         font-size: 12px;
     }
+    .sort{
+        display: none;
+    }
 }
 
 @media (max-width: 320px) {
@@ -139,13 +161,23 @@ header {
         padding: 8px;
         font-size: 14px;
     }
-
+    .sort{
+        display: none;
+    }
     .task-list li {
         flex-direction: column;
         align-items: flex-start;
         padding: 8px;
     }
-
+    .task-list span:first-child{
+        background: linear-gradient(to right, #4CAF50, #66BB6A);
+        border-radius: 25%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .task-list .buttonDiv {
         width: 100%;
         display: flex;

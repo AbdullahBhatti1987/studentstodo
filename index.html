@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List App</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/670d8593df.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -38,9 +39,24 @@
             <input type="date" id="endDate">
             <button id="filterTaskBtn" onclick="filterTaskBtn()">Filter Tasks</button>
         </div>
+        <div class="sort">
+            <div class="icon">
+                <i class="fa-solid fa-arrow-up" id="nameUp"></i>
+                <i class="fa-solid fa-arrow-down" id="nameDown"></i>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-arrow-up" id="dateUp"></i>
+                <i class="fa-solid fa-arrow-down" id="dateDown"></i>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-arrow-up" id="categoryUp"></i>
+                <i class="fa-solid fa-arrow-down" id="categoryDown"></i>
+            </div>
+        </div>
         <div class="task-list">
             <ul id="taskList">
-                <!-- <li><span class="id">${data.taskName}</span>
+                <!-- <li><span class="id">${ind + 1}</span>
+                    <span class="task">${data.taskName}</span>
                     <span class="dueDate">${data.dueDate}</span>
                     <span class="category">${data.category}</span>
                     <div class="buttonDiv">
