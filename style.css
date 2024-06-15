@@ -66,12 +66,16 @@ header {
     border-bottom: 1px solid #ccc;
 
 }
+.sort .icon i{
+    margin: 5px!important;
+}
 .sort .icon:nth-child(1){
     padding-left: 100px;
-    flex-basis: 23%;
+    flex-basis: 25%;
+
 }
 .sort .icon:nth-child(2){
-    flex-basis: 30%;
+    flex-basis: 25%;
 }
 .task-list ul {
     list-style: none;

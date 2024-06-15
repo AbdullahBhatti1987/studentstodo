@@ -167,12 +167,12 @@ const editTask = (element) => {
 }
 
 
-document.getElementById('nameUp').addEventListener('click', ()  => {
+document.getElementById('nameDown').addEventListener('click', ()  => {
   taskData.sort((a, b) => (a.task > b.task ? 1 : -1));
   render(taskData)
 });
 
-document.getElementById('nameDown').addEventListener('click', () => {
+document.getElementById('nameUp').addEventListener('click', () => {
   taskData.sort((a, b) => (a.task > b.task ? -1 : 1));
   render(taskData)
 });
